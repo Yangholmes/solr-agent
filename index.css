@@ -18,6 +18,18 @@ b{
 	color: rgb(190, 50, 50);
 }
 
+#start{
+	width: 80%;
+	margin: 0 auto;
+	overflow-x: auto;
+}
+
+#start a{
+	text-decoration: underline;
+	cursor: pointer;
+	margin: 0 1em;
+}
+
 .query-container{
 	width: 80%;
 	margin: 0 auto;
