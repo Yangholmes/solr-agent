@@ -17,15 +17,15 @@ $(function(){
     },
 	
     columns: [
-            { field: 'type', caption: '格式', size: '10%', sortable: true },
+			{ field: 'type', caption: '格式', size: '10%', sortable: true },
 			{ field: 'filename', caption: '文件名', size: '50%', sortable: true },
-			 { field: 'title',caption: '标题',size:'30%' },
-            { field: 'filelink', caption: '位置', size: '10%', sortable: true, render: function(foo){ return '<a target="_blank" href="' + foo.filelink + '">' + '点此下载' + '</a>'; } },
-    ],
-    // sortData: [
-        // { field: 'bookname', direction: 'asc' },
-        // { field: 'author', direction: 'asc' }
-    // ],
+			{ field: 'title',caption: '标题',size:'30%' },
+			{ field: 'filelink', caption: '位置', size: '10%', sortable: true, render: function(foo){ return '<a target="_blank" href="' + foo.filelink + '">' + '点此下载' + '</a>'; } },
+	],
+	// sortData: [
+		// { field: 'bookname', direction: 'asc' },
+		// { field: 'author', direction: 'asc' }
+	// ],
    });
 });
 

@@ -24,10 +24,19 @@ b{
 	overflow-x: auto;
 }
 
+#start a:before{
+	content: '[';
+}
 #start a{
 	text-decoration: underline;
 	cursor: pointer;
 	margin: 0 1em;
+}
+#start a:after{
+	content: ']';
+}
+a:active{
+	color: #FF0000;
 }
 
 .query-container{
