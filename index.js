@@ -35,6 +35,10 @@ $('#query-btn').click(function(){
 	sendQuery(0);
 });
 
+$('#query').keyup(function(){
+	$('#query-btn').click();
+});
+
 function queryWithStart(a){
 	console.log(a);
 	var index = a.innerHTML;
@@ -43,7 +47,7 @@ function queryWithStart(a){
 	sendQuery((index-1) * rows);
 }
 
-function sendQuery(start=0, rows=50){
+function sendQuery(start){
 	query = $('#query').val() ? $('#query').val() : "*:*";
 	start = start<0 ? 0 : start;
 	rows = rows<0 ? 50 : rows;
@@ -77,8 +81,13 @@ function sendQuery(start=0, rows=50){
 					var page = i+1;
 					$('#start').append('<a onclick="queryWithStart(this)">' + page + '</a>');
 				}
-				
 			}
+		},
+		error: function(jqXHR, textStatus, errorThrown ){
+			w2popup.open({
+				title   : '搜索出错啦！',
+				body    : '<p>您的搜索请求有收到，但是查询失败了。</p><p>请重试或者找管理员看看。</p>',
+			});
 		}
 	})
 }

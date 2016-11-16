@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Force Using EDGE/webkit/blink kernel -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+  
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit">
 
@@ -13,11 +17,11 @@
 
 <body>
 	<h1>知识库检索</h1>
-	<p><b>备注：</b></p>
-	<p>输入关键字之后点击“搜索”。暂时不支持回车键快捷搜索。</p>
+	<p><b>!每周日零点更新数据!</b></p>
+	<p>输入关键字即可进行搜索，感受即刻搜出干货的快感！</p>
 	<p>搜索结果每次只显示50条，点击表格底部数字键可翻页查看。</p>
 	<div class="query-container">
-		关键字：<input type="text" id="query" >
+		<input type="text" id="query" placeholder="请输入关键字">
 		<input type="button" id="query-btn" value="搜索" >
 		<div class="w2ui-grid" id="result"></div>
 	</div>
@@ -25,7 +29,7 @@
 	<div id="numFound"></div>
 	<div id="start"></div>
 	<p>Base on Solr, Thanks Apache.</p>
-	<p>Yangholmes</p>
+	<p>通导研发出品</p>
 
 	<script src="js/jquery-2.1.1.js"></script>
     <script src="js/w2ui/w2ui-1.4.3.min.js"></script>

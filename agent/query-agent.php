@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0); // sheild all info
+
 /**
  * Solr query Agent
  */
@@ -32,15 +34,13 @@ if($rows==null || $rows == ''){ // 20 rows par page
 	$rows = 20;
 }
 
-// pre-treat query condition
 $keyword = "q=".rawurlencode($keyword); // Escape Chinese to url
 $start = "start=".$start; 
 $rows = "rows=".$rows;
-$query = "$wt&$keyword&$start&$rows"; // jion the url
+$query = "$wt&$keyword&$start&$rows"; // 
 
 $url = $solr_url.$collection.$request_handler.$query;
 
-// instantiate yang_HTTP_request class
 $request = new yang_HTTP_request("$url"); // 
 $request->set_header([]);
 $raw_response = $request->request('GET'); // $raw_response is json string
@@ -56,9 +56,8 @@ for($i=0;$i<count($raw_docs);$i++){
 	@ $type = $raw_docs[$i]->stream_content_type[0];
 	@ $title = $raw_docs[$i]->title;
 	
-	$id = str_replace('#', '%23', $id);
 	$filename = substr( $id, strrpos($id, "\\")+1 );
-	$filelink = preg_replace('/C:\\\\share\\\\01.知识库平台/', 'http://192.168.3.116:81', $id); // replace IP address, escape filename
+	$filelink = preg_replace('/C:\\\\share/', 'http://192.168.3.116:81', $id); // replace IP address, escape filename
 	
 	$docs[$i] = [
 					 "filename"=>$filename,
